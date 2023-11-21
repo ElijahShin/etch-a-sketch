@@ -8,21 +8,37 @@
   <body>
     <div class="outer-wrapper">
       <div class="main-wrapper">
-        <div class="left-wrapper flex">
+        <div class="left-wrapper">
           <input type="color">
           <button>Color</button>
           <button>Rainbow</button>
           <button>Eraser</button>
           <button>Clear</button>
-          <label id="gridSize">16 x 16</label>
-          <input for="gridSize" type="range">
+          <div class="range-wrapper">
+            <label id="gridSize">16 x 16</label>
+            <input for="gridSize" type="range">
+          </div>
+        
         </div>
-        <div class="right-wrapper flex">
+
+        <div class="right-outer-wrapper">
           <h1>Etch-a-sketch</h1>
-          <div class="grid-wrapper">
+          <div class="right-inner-wrapper">
+            <div class="grid-wrapper">
+              <div class="grid-row">
+                <div class="grid-box"></div>
+                <div class="grid-box"></div>
+              </div>
+              <div class="grid-row">
+                <div class="grid-box"></div>
+                <div class="grid-box"></div>
+              </div>
   
+            </div>
           </div>
         </div>
+
+
       </div>
     </div>
  
