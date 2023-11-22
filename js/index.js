@@ -18,4 +18,17 @@ function createGrid(gridSize) {
 
 }
 
-createGrid(16);
+function getGridSize() {
+  const range = document.querySelector('input[type="range"]');
+  
+  let value;
+
+  range.addEventListener('input', event => {
+    value = range.value;
+  });
+
+  return value;
+}
+
+getGridSize();
+// createGrid(1);
