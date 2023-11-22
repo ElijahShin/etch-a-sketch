@@ -36,7 +36,6 @@ function createGrid(gridSize) {
 
     }
   }
-
 }
 
 function deleteGrid() {
@@ -58,6 +57,25 @@ function displayGridSize() {
 
 }
 
+function clearGridDisplay() {
+  const gridBoxes = document.querySelectorAll('.grid-box');
+  
+  for(box of gridBoxes) {
+    box.style.backgroundColor = 'white';
+  }
+}
+
+function btnClick(classStr, callback) {
+  const btn = document.querySelector(classStr);
+  
+  btn.addEventListener('click', event => {
+    callback();
+  });
+}
+
+
+
 createGrid(DEFAULT_GRID_SIZE);
 displayGridSize();
-hover();
+
+btnClick('btn-clear', clearGridDisplay);
