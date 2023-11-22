@@ -1,6 +1,8 @@
+const DEFAULT_GRID_SIZE = 16;
+
 function createGrid(gridSize) {
   deleteGrid();
-  
+
   const parentWrap = document.querySelector('.right-inner-wrapper');
   const gridWrap = document.createElement("div");
 
@@ -18,6 +20,18 @@ function createGrid(gridSize) {
       const gridBox = document.createElement('div');
 
       gridBox.className = 'grid-box';
+
+      gridBox.addEventListener('mousedown', event => {
+        gridBox.style.backgroundColor = 'cyan';
+      });
+
+      gridBox.addEventListener('mouseover', event => {
+        if(event.buttons == 1) {
+          gridBox.style.backgroundColor = 'cyan';  
+        }
+        
+      });
+
       rowDiv.append(gridBox);
 
     }
@@ -38,9 +52,12 @@ function displayGridSize() {
   input.addEventListener('input', event => {
     let gridSize = input.value;
     label.textContent = `${gridSize} x ${gridSize}`;
+
+    createGrid(gridSize);
   });
 
 }
 
+createGrid(DEFAULT_GRID_SIZE);
 displayGridSize();
-createGrid(2);
+hover();
