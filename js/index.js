@@ -1,5 +1,12 @@
 function createGrid(gridSize) {
-  const gridWrap = document.querySelector(".grid-wrapper");
+  deleteGrid();
+  
+  const parentWrap = document.querySelector('.right-inner-wrapper');
+  const gridWrap = document.createElement("div");
+
+  gridWrap.className = 'grid-wrapper';
+  
+  parentWrap.appendChild(gridWrap);
 
   for(let i = 0; i < gridSize; i++) {
     const rowDiv = document.createElement('div');
@@ -18,17 +25,22 @@ function createGrid(gridSize) {
 
 }
 
-function getGridSize() {
-  const range = document.querySelector('input[type="range"]');
-  
-  let value;
-
-  range.addEventListener('input', event => {
-    value = range.value;
-  });
-
-  return value;
+function deleteGrid() {
+  const parentGridWrap = document.querySelector('.right-inner-wrapper');
+  const gridWrap = document.querySelector('.grid-wrapper');
+  parentGridWrap.removeChild(gridWrap);
 }
 
-getGridSize();
-// createGrid(1);
+function displayGridSize() {
+  const input = document.querySelector('input[type="range"]');
+  const label = document.querySelector('label');
+
+  input.addEventListener('input', event => {
+    let gridSize = input.value;
+    label.textContent = `${gridSize} x ${gridSize}`;
+  });
+
+}
+
+displayGridSize();
+createGrid(2);
