@@ -21,17 +21,7 @@ function createGrid(gridSize) {
 
       gridBox.className = 'grid-box';
 
-      gridBox.addEventListener('mousedown', event => {
-        gridBox.style.backgroundColor = 'cyan';
-      });
-
-      gridBox.addEventListener('mouseover', event => {
-        if(event.buttons == 1) {
-          gridBox.style.backgroundColor = 'cyan';  
-        }
-        
-      });
-
+      draw(gridBox);
       rowDiv.append(gridBox);
 
     }
@@ -57,6 +47,21 @@ function displayGridSize() {
 
 }
 
+function draw(gridBox) {
+  const colorPicker = document.querySelector('input[type="color"]');
+
+  gridBox.addEventListener('mousedown', event => {
+    gridBox.style.backgroundColor = colorPicker.value;
+  });
+
+  gridBox.addEventListener('mouseover', event => {
+    if(event.buttons == 1) {
+      gridBox.style.backgroundColor = colorPicker.value;  
+    }
+    
+  });
+}
+
 function clearGridDisplay() {
   const gridBoxes = document.querySelectorAll('.grid-box');
   
@@ -66,7 +71,7 @@ function clearGridDisplay() {
 }
 
 function btnClick(classStr, callback) {
-  const btn = document.querySelector(classStr);
+  const btn = document.querySelector("." + classStr);
   
   btn.addEventListener('click', event => {
     callback();
@@ -77,5 +82,6 @@ function btnClick(classStr, callback) {
 
 createGrid(DEFAULT_GRID_SIZE);
 displayGridSize();
+
 
 btnClick('btn-clear', clearGridDisplay);
