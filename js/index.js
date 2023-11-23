@@ -1,4 +1,6 @@
 const DEFAULT_GRID_SIZE = 16;
+const colorPicker = document.querySelector('input[type="color"]');
+let boxColor = colorPicker.value;
 
 function createGrid(gridSize) {
   deleteGrid();
@@ -48,18 +50,57 @@ function displayGridSize() {
 }
 
 function draw(gridBox) {
-  const colorPicker = document.querySelector('input[type="color"]');
-
   gridBox.addEventListener('mousedown', event => {
-    gridBox.style.backgroundColor = colorPicker.value;
+    if(boxColor == 'rainbow') {
+      gridBox.style.backgroundColor = `rgb(${randomNum()}, ${randomNum()}, ${randomNum()})`;
+    }
+    gridBox.style.backgroundColor = boxColor;
   });
 
   gridBox.addEventListener('mouseover', event => {
     if(event.buttons == 1) {
-      gridBox.style.backgroundColor = colorPicker.value;  
+
+      if(boxColor == 'rainbow') {
+        gridBox.style.backgroundColor = `rgb(${randomNum()}, ${randomNum()}, ${randomNum()})`;
+      }
+      gridBox.style.backgroundColor = boxColor;  
     }
-    
   });
+}
+
+function colorBtn() {
+  const colorPicker = document.querySelector('input[type="color"]');
+  const colorBtn = document.querySelector('.btn-color');
+
+  colorPicker.addEventListener('input', () => {
+    boxColor = colorPicker.value;
+  });
+
+  colorBtn.addEventListener('click', () => {
+    boxColor = colorPicker.value;
+  });
+
+}
+
+function rainbowBtn() {
+  const rainBtn = document.querySelector('.btn-rainbow');
+
+  rainBtn.addEventListener('click', () => {
+    boxColor = 'rainbow';
+  });
+}
+
+function eraserBtn() {
+  const eraseBtn = document.querySelector('.btn-eraser');
+
+  eraseBtn.addEventListener('click', () => {
+    boxColor = 'white';
+  });
+}
+
+function randomNum() {
+    let rand = Math.floor(Math.random(1) * 255);
+  return rand;
 }
 
 function clearGridDisplay() {
@@ -85,3 +126,6 @@ displayGridSize();
 
 
 btnClick('btn-clear', clearGridDisplay);
+rainbowBtn();
+eraserBtn();
+colorBtn();

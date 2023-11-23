@@ -99,12 +99,9 @@ h1 {
   flex-grow: 1;
 }
 
-
 .grid-box {
   flex-grow: 1;
-  background-color: cadetblue;
-  border: 1px solid black;
-  padding: 30px;
+  background-color: white;
 }
 
 button {

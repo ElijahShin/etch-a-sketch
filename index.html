@@ -9,30 +9,25 @@
     <div class="outer-wrapper">
       <div class="main-wrapper">
         <div class="left-wrapper">
-          <input type="color">
-          <button>Color</button>
-          <button>Rainbow</button>
-          <button>Eraser</button>
-          <button>Clear</button>
+          <input class="color-input" type="color">
+          <button class="btn-color">Color</button>
+          <button class="btn-rainbow">Rainbow</button>
+          <button class="btn-eraser">Eraser</button>
+          <button class="btn-clear">Clear</button>
           <div class="range-wrapper">
             <label id="gridSize">16 x 16</label>
-            <input for="gridSize" type="range">
+            <input type="range" for="gridSize" min="1" max="64" value="16" step="1">
           </div>
-        
         </div>
 
         <div class="right-outer-wrapper">
           <h1>Etch-a-sketch</h1>
           <div class="right-inner-wrapper">
             <div class="grid-wrapper">
-              <div class="grid-row">
+              <!-- <div class="grid-row">
                 <div class="grid-box"></div>
                 <div class="grid-box"></div>
-              </div>
-              <div class="grid-row">
-                <div class="grid-box"></div>
-                <div class="grid-box"></div>
-              </div>
+              </div> -->
   
             </div>
           </div>
