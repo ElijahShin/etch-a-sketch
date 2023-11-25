@@ -110,3 +110,9 @@ button {
   border-radius: 5px;
   padding: 12px  0 12px 0;
 }
+
+button:hover {
+  background-color: black;
+  color: white;
+}
+
